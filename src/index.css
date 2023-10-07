@@ -1,0 +1,227 @@
+:root {
+  --primary: #e99401;
+  --black: #262626;
+  --white: #FFF;
+  --fuente-principal: 'Outfit', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 2rem;
+  font-family: var(--fuente-principal);
+  line-height: 1.5;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+[class*="container"],
+main {
+  width: min(95%, 120rem);
+  margin: 3rem auto;
+}
+
+[class*="heading"] {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  color: var(--primary);
+  margin: 5rem 0;
+}
+
+/* ************ HEADER ************ */
+
+.header {
+  background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.jpg);
+  padding: 6rem 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+.header .logo {
+  width: 25rem;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header .navegation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.header .navegation a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.4rem;
+  padding: .5rem;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+.header .navegation a:hover,
+.header .active {
+  background-color: var(--primary);
+}
+
+.header .navegation img {
+  width: 3rem;
+}
+
+@media (min-width: 768px) {
+  .bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header .navegation {
+    margin-top: 0;
+  }
+}
+
+/* ************ FOOTER ************ */
+
+.footer {
+  background-color: var(--black);
+  padding: 5rem 0;
+  margin-top: 5rem;
+}
+
+.footer .navegation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer .content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer .navegation {
+    flex-direction: row;
+  }
+}
+
+.footer .navegation a,
+.footer .copyright {
+  color: var(--white);
+  font-size: 2.2rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer .navegation a:last-of-type {
+  display: none;
+}
+
+.footer .copyright {
+  text-align: center;
+}
+
+/*  ************** LINKS FROM BLOGS AND GUITARS **************** */
+
+.link {
+  margin-top: 2rem;
+  display: block;
+  background-color: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+.link:hover {
+  background-color: var(--primary);
+}
+
+/*  *********** LOADER *********** */
+
+/* .loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader > img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  animation: 5s rotation linear infinite;
+}
+
+@keyframes rotation {
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+} */
+
+/*  *********** LOADING *********** */
+
+.loading {
+  width: 320px;
+  height: 220px;
+  display: block;
+  margin: auto;
+  position: relative;
+  background: #FFF;
+  box-sizing: border-box;
+}
+
+.loading::after {
+  content: '';  
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 70px;
+  left: 15px;
+  position: absolute;
+  background-image: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 80%), radial-gradient(circle 28px at 28px 28px, #DDD 99%, transparent 0), linear-gradient(#DDD 24px, transparent 0), linear-gradient(#DDD 18px, transparent 0), linear-gradient(#DDD 66px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 75px 130px, 55px 56px, 160px 30px, 260px 20px, 290px 56px;
+  background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  box-sizing: border-box;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  }
+  100% {
+    background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+  }
+}
