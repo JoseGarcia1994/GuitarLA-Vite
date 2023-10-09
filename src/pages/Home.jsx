@@ -1,26 +1,33 @@
 import GuitarList from "../components/GuitarList";
 import PostList from "../components/PostList";
 import Course from "../components/Course";
+import Loader from '../components/Loader';
 import '../styles/course.css';
 
-const Home = ({posts, guitars, course}) => {
+const Home = ({ posts, guitars, course }) => {
     return (
         <>
-            <main className='container'>
-                <GuitarList 
-                guitars={guitars}
-                />
-            </main>
+            {guitars && guitars.length ? (
+                <>
+                    <main className='container'>
+                        <GuitarList
+                            guitars={guitars}
+                        />
+                    </main>
 
-            <Course 
-            course={course.attributes}
-            />
+                    <Course
+                        course={course.attributes}
+                    />
 
-            <section className="container">
-                <PostList 
-                posts={posts}
-                />
-            </section>
+                    <section className="container">
+                        <PostList
+                            posts={posts}
+                        />
+                    </section>
+                </>
+            ) : (
+                <Loader />
+            )}
         </>
     );
 };

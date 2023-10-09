@@ -1,13 +1,22 @@
-import GuitarList from '../components/GuitarList';
 import '../styles/guitar.css';
+import GuitarList from '../components/GuitarList';
+import Loader from '../components/Loader';
 
-const Store = ({guitars}) => {
+const Store = ({ guitars }) => {
     return (
-        <main className='container'>
-            <GuitarList 
-            guitars={guitars}
-            />
-        </main>
+        <>
+            {guitars && guitars.length ? (
+                <>
+                    <main className='container'>
+                        <GuitarList
+                            guitars={guitars}
+                        />
+                    </main>
+                </>
+            ) : (
+                <Loader />
+            )}
+        </>
     );
 };
 
